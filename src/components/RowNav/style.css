@@ -1,0 +1,44 @@
+.img_logo {
+    height: 50px;
+}
+
+.row-nav {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+}
+
+.row-nav nav {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+nav a {
+    padding: 10px 15px;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+nav a.active {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 700px) {
+    .img_logo {
+        height: 45px;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .header {
+        padding: 20px;
+    }
+}

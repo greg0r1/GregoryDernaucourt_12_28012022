@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './utils/style/index.css';
 import reportWebVitals from './reportWebVitals';
+import RowNav from './components/RowNav';
+import Error from './components/Error';
+import Profile from './pages/Profile';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <RowNav />
+      <Routes>
+        <Route exact path='/profile' element={<Profile />}></Route>
+        <Route path='*' element={<Error />}></Route>
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
