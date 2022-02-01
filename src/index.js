@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './utils/style/index.css';
+import './sass/main.scss';
 import reportWebVitals from './reportWebVitals';
 import RowNav from './components/RowNav';
 import Error from './components/Error';
