@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './sass/main.scss';
 import reportWebVitals from './reportWebVitals';
 import RowNav from './components/RowNav';
+import VerticalNav from './components/VerticalNav';
 import Error from './components/Error';
 import Profile from './pages/Profile';
 
@@ -11,6 +12,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <RowNav />
+      <VerticalNav />
       <Routes>
         <Route exact path='/profile' element={<Profile />}></Route>
         <Route path='*' element={<Error />}></Route>
