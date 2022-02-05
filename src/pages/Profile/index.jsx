@@ -23,7 +23,7 @@ function Profile() {
     return // componentWillUnmount
   }, [id])
 
-  if (data.userInfos.firstName === undefined) {
+  if (data === undefined) {
     return (
       <div className="spinnerContainer">
         <img src={spinner} width="50" alt="" />
