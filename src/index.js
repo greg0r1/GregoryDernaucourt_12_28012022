@@ -14,7 +14,7 @@ ReactDOM.render(
       <RowNav />
       <VerticalNav />
       <Routes>
-        <Route exact path='/profile' element={<Profile />}></Route>
+        <Route path='/user/:id' element={<Profile />}></Route>
         <Route path='*' element={<Error />}></Route>
       </Routes>
     </Router>

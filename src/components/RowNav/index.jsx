@@ -9,6 +9,8 @@ import Logo from '../../assets/images/logo.svg'
  * @returns {React.ReactElement}
  */
 function RowNav() {
+  const id = 18
+
   return (
     <header className="row-nav">
       <Link to="/">
@@ -16,7 +18,7 @@ function RowNav() {
       </Link>
       <nav>
         <NavLink to="/">Accueil</NavLink>
-        <NavLink to="/profile">Profil</NavLink>
+        <NavLink to={`/user/${id}`}>Profil</NavLink>
         <NavLink to="/setting">Réglage</NavLink>
         <NavLink to="/community">Communauté</NavLink>
       </nav>
