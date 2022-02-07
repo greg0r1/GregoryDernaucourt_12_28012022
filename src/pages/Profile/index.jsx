@@ -14,44 +14,43 @@ import KeyData from '../../components/KeyDatas'
  */
 function Profile() {
   const { id } = useParams()
-  const [dataInfos, setUserInfos] = useState({
+  const [userInfos, setUserInfos] = useState({
     userInfos: {},
     score: {},
     keyData: {},
   })
-  // const [dataActivity, setUserActivity] = useState({ sessions: {} })
+  const [userActivity, setUserActivity] = useState({ sessions: {} })
 
   const fetchUser = async (id) => {
-    const result = await Datas.getUserInfos(id).then(({ data }) =>
-      setUserInfos(data)
-    )
+    const result = await Datas.getUserInfos(id)
+    setUserInfos(result.data)
     return result
   }
 
-  // const fetchUserActivity = async (id) => {
-  //   const result = await Datas.getUserActivity(id).then((res) =>
-  //     setUserActivity(res.data)
-  //   )
-  //   return result
-  // }
+  const fetchUserActivity = async (id) => {
+    const result = await Datas.getUserActivity(id)
+    setUserActivity(result.data)
+    return result
+  }
 
   useEffect(() => {
     fetchUser(id)
     return // componentWillUnmount
   }, [id])
 
-  // useEffect(() => {
-  //   fetchUserActivity(id)
-  //   return // componentWillUnmount
-  // }, [id])
+  useEffect(() => {
+    fetchUserActivity(id)
+    return // componentWillUnmount
+  }, [id])
 
-  if (dataInfos === undefined) {
+  if (userInfos === undefined) {
     return <Spinner />
   } else {
+    console.log(userActivity)
     return (
       <div id="profilePage">
-        <WelcomeBlock firstName={dataInfos.userInfos.firstName} />
-        <KeyData keyData={dataInfos.keyData} />
+        <WelcomeBlock firstName={userInfos.userInfos.firstName} />
+        <KeyData keyData={userInfos.keyData} />
       </div>
     )
   }
