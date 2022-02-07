@@ -1,0 +1,59 @@
+.keyDatas {
+    ul li {
+        display: flex;
+        padding: 20px 30px;
+        background: #FBFBFB;
+        margin: 24px;
+        border-radius: 5px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 10px;
+
+            span:first-child {
+                font-size: 1.1rem;
+                font-weight: 900;
+                margin-bottom: 5px;
+            }
+
+            span:last-child {
+                color: #74798C;
+            }
+        }
+
+        img {
+            padding: 15px;
+            border-radius: 5px;
+        }
+    }
+
+    .keyDatas_list {
+        list-style: none;
+
+        .keyDatas_calorie {
+            img {
+                background: #ff000012;
+            }
+        }
+
+        .keyDatas_protein {
+            img {
+                background: #4AB8FF12;
+            }
+        }
+
+        .keyDatas_carbohydrate {
+            img {
+                background: #F9CE2312;
+            }
+        }
+
+        .keyDatas_lipid {
+            img {
+                background: #FD518112;
+            }
+        }
+    }
+}
