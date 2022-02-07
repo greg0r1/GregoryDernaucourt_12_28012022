@@ -10,7 +10,7 @@ export default class Datas {
   /**
    * @param {string} id
    */
-  static async getUser(id) {
+  static async getUserInfos(id) {
     const url = `http://localhost:3000/user/${id}`
     const userFetch = await fetch(url).then((response) => {
       if (response.status === 200) {
@@ -19,7 +19,21 @@ export default class Datas {
         console.log(response.status)
       }
     })
+    return userFetch
+  }
 
+  /**
+   * @param {string} id
+   */
+  static async getUserActivity(id) {
+    const url = `http://localhost:3000/user/${id}/activity`
+    const userFetch = await fetch(url).then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        console.log(response.status)
+      }
+    })
     return userFetch
   }
 }

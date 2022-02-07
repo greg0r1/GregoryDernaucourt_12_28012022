@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './sass/main.scss';
 import reportWebVitals from './reportWebVitals';
 import RowNav from './components/RowNav';
 import VerticalNav from './components/VerticalNav';
-import Error from './components/Error';
 import Profile from './pages/Profile';
 
 ReactDOM.render(
@@ -15,7 +14,7 @@ ReactDOM.render(
       <VerticalNav />
       <Routes>
         <Route path='/user/:id' element={<Profile />}></Route>
-        <Route path='*' element={<Error />}></Route>
+        <Route path='*' element={<Navigate to="/user/:id" />}></Route>
       </Routes>
     </Router>
   </React.StrictMode>,
