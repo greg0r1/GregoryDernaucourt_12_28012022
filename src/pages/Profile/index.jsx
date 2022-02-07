@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Datas from '../../data'
 import Spinner from '../../components/Spinner'
+import WelcomeBlock from '../../components/WelcomeBlock'
 
 /**
  *
@@ -46,15 +47,10 @@ function Profile() {
   if (dataInfos === undefined) {
     return <Spinner />
   } else {
-    console.info(dataActivity)
+    console.info(typeof dataInfos.userInfos.firstName)
     return (
       <div id="profilePage">
-        <div className="welcomeBlock">
-          <h1>
-            Bonjour<span> {dataInfos.userInfos.firstName}</span>
-          </h1>
-          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-        </div>
+        <WelcomeBlock firstName={dataInfos.userInfos.firstName} />
         <div>
           <ul>
             {/* {dataInfos.keyData !== undefined &&
