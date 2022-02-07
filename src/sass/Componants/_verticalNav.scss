@@ -10,9 +10,29 @@
     margin-top: auto;
     bottom: 0;
 
-
+    @include mobile-only {
+        width: 100%;
+        height: auto;
+        max-height: max-content;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 0;
+        bottom: 0;
+        position: absolute;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
 
     .verticalNavLinks {
+
+        @include mobile-only {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+
         a {
             width: 60px;
             height: 60px;
@@ -23,6 +43,10 @@
             justify-content: center;
             align-items: center;
 
+            @include mobile-only {
+                margin: auto;
+
+            }
         }
 
         .verticalNav-icon01 {
@@ -55,6 +79,12 @@
         writing-mode: vertical-lr;
         transform: rotate(180deg);
         margin-top: 100%;
+
+        @include mobile-only {
+            writing-mode: initial;
+            transform: initial;
+            margin: 10px auto 0;
+        }
     }
 
 }

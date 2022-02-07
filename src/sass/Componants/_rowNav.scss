@@ -14,7 +14,7 @@
 
     &>a {
         @include mobile-only {
-            width: 100%;
+            width: auto;
             ;
         }
 
@@ -33,6 +33,10 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+
+        @include mobile-only {
+            width: auto;
+        }
 
         a {
             padding: 10px 15px;
