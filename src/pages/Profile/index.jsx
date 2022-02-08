@@ -6,13 +6,14 @@ import Datas from '../../data'
 import Spinner from '../../components/Spinner'
 import WelcomeBlock from '../../components/WelcomeBlock'
 import KeyData from '../../components/KeyDatas'
+import PropTypes from 'prop-types'
 
 /**
  *
  * @component
  * @returns {React.ReactElement}
  */
-function Profile({ keyData }) {
+function Profile({ keyData, todayScore }) {
   const { id } = useParams()
   const [userInfos, setUserInfos] = useState({
     userInfos: {},
@@ -29,6 +30,10 @@ function Profile({ keyData }) {
 
   //be able to access key figures via /user/:id/key-data route
   keyData ? console.table(userInfos.keyData) : console.log('keyData', keyData)
+  //be able to access key figures via /user/:id/key-data route
+  todayScore
+    ? console.table(userInfos.score)
+    : console.log('keyData', todayScore)
 
   const fetchUserActivity = async (id) => {
     const result = await Datas.getUserActivity(id)
@@ -60,3 +65,13 @@ function Profile({ keyData }) {
 }
 
 export default Profile
+
+Profile.propType = {
+  keyData: PropTypes.bool,
+  todayScore: PropTypes.bool,
+}
+
+Profile.defaultProps = {
+  keyData: false,
+  todayScore: false,
+}
