@@ -30,7 +30,7 @@ function Profile({ keyData, todayScore }) {
 
   //be able to access key figures via /user/:id/key-data route
   keyData ? console.table(userInfos.keyData) : console.log('keyData', keyData)
-  //be able to access key figures via /user/:id/key-data route
+  //be able to access today's goal completion via the /user/:id/today-score route
   todayScore
     ? console.table(userInfos.score)
     : console.log('keyData', todayScore)
@@ -54,7 +54,7 @@ function Profile({ keyData, todayScore }) {
   if (userInfos === undefined) {
     return <Spinner />
   } else {
-    console.log(userActivity)
+    console.table(userActivity.sessions)
     return (
       <div id="profilePage">
         <WelcomeBlock firstName={userInfos.userInfos.firstName} />
