@@ -17,6 +17,8 @@ ReactDOM.render(
         <Route path='/user/:id' element={<Profile />} />
         <Route path='/user/:id/key-data' element={<Profile keyData={true} />} />
         <Route path='/user/:id/today-score' element={<Profile todayScore={true} />} />
+        <Route path='/user/:id/average-sessions' element={<Profile averageSessions={true} />} />
+        <Route path='/user/:id/activities' element={<Profile activities={true} />} />
         <Route path='*' element={<Navigate to="/user/18" />}></Route>
       </Routes>
     </Router>
