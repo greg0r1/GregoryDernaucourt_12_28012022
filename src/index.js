@@ -14,7 +14,7 @@ ReactDOM.render(
       <VerticalNav />
       <Routes>
         <Route path='/user/:id' element={<Profile />}></Route>
-        <Route path='*' element={<Navigate to="/user/:id" />}></Route>
+        <Route path='*' element={<Navigate to="/user/18" />}></Route>
       </Routes>
     </Router>
   </React.StrictMode>,
