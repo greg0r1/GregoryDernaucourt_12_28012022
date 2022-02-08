@@ -12,7 +12,7 @@ import KeyData from '../../components/KeyDatas'
  * @component
  * @returns {React.ReactElement}
  */
-function Profile() {
+function Profile({ keyData }) {
   const { id } = useParams()
   const [userInfos, setUserInfos] = useState({
     userInfos: {},
@@ -26,6 +26,9 @@ function Profile() {
     setUserInfos(result.data)
     return result
   }
+
+  //be able to access key figures via /user/:id/key-data route
+  keyData ? console.table(userInfos.keyData) : console.log('keyData', keyData)
 
   const fetchUserActivity = async (id) => {
     const result = await Datas.getUserActivity(id)
@@ -50,7 +53,7 @@ function Profile() {
     return (
       <div id="profilePage">
         <WelcomeBlock firstName={userInfos.userInfos.firstName} />
-        <KeyData keyData={userInfos.keyData} />
+        {<KeyData keyData={userInfos.keyData} />}
       </div>
     )
   }
