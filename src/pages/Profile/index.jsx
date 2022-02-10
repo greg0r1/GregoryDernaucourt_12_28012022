@@ -6,6 +6,7 @@ import Datas from '../../data'
 import Spinner from '../../components/Spinner'
 import WelcomeBlock from '../../components/WelcomeBlock'
 import KeyData from '../../components/KeyDatas'
+import AverageSessions from '../../components/AverageSessions'
 import PropTypes from 'prop-types'
 
 /**
@@ -73,7 +74,10 @@ function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
     return (
       <div id="profilePage">
         <WelcomeBlock firstName={userInfos.userInfos.firstName} />
-        {<KeyData keyData={userInfos.keyData} />}
+        <div id="content">
+          <AverageSessions data={userAverageSessions.sessions} />
+          <KeyData keyData={userInfos.keyData} />
+        </div>
       </div>
     )
   }
@@ -82,15 +86,15 @@ function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
 export default Profile
 
 Profile.propType = {
-  keyData: PropTypes.bool,
-  todayScore: PropTypes.bool,
-  averageSessions: PropTypes.bool,
-  activities: PropTypes.bool,
+  isKeyData: PropTypes.bool,
+  isTodayScore: PropTypes.bool,
+  isAverageSessions: PropTypes.bool,
+  isActivities: PropTypes.bool,
 }
 
 Profile.defaultProps = {
-  keyData: false,
-  todayScore: false,
-  averageSessions: false,
-  activities: false,
+  isKeyData: false,
+  isTodayScore: false,
+  isAverageSessions: false,
+  isActivities: false,
 }
