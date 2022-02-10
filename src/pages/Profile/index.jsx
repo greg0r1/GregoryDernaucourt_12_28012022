@@ -3,11 +3,12 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Datas from '../../data'
-import Spinner from '../../components/Spinner'
+// import Spinner from '../../components/Spinner'
 import WelcomeBlock from '../../components/WelcomeBlock'
 import KeyData from '../../components/KeyDatas'
 import AverageSessions from '../../components/AverageSessions'
 import PropTypes from 'prop-types'
+import Error from '../../components/Error'
 
 /**
  *
@@ -68,8 +69,12 @@ function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
     return // componentWillUnmount
   }, [id])
 
-  if (userInfos === undefined) {
-    return <Spinner />
+  if (
+    userInfos.keyData === undefined ||
+    userAverageSessions.sessions === undefined ||
+    isNaN(parseInt(id))
+  ) {
+    return <Error />
   } else {
     return (
       <div id="profilePage">
