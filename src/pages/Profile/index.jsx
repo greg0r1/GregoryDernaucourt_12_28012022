@@ -16,7 +16,13 @@ import AverageScore from '../../components/AverageScore'
  * @component
  * @returns {React.ReactElement}
  */
-function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
+function Profile({
+  isKeyData,
+  isTodayScore,
+  isAverageSessions,
+  isActivity,
+  isActivities,
+}) {
   const { id } = useParams()
   const [userInfos, setUserInfos] = useState({
     userInfos: {},
@@ -27,6 +33,7 @@ function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
   const [userAverageSessions, setUserAverageSessions] = useState({
     sessions: [],
   })
+  const [userActivities, setUserActivities] = useState()
 
   //be able to access key figures via /user/:id/key-data route
   isKeyData
@@ -36,10 +43,14 @@ function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
   isTodayScore
     ? console.table(userInfos.score)
     : console.info('Today score', isTodayScore)
+  //be able to access sessions via the /user/:id/activity route
+  isActivity
+    ? console.table(userActivity.sessions)
+    : console.info('Activity', isActivity)
   //be able to access sessions via the /user/:id/activities route
   isActivities
-    ? console.table(userActivity.sessions)
-    : console.info('Average sessions', isActivities)
+    ? console.table(userActivities)
+    : console.info('Activities', isActivities)
   //be able to access average session duration via the /user/:id/average-sessions route
   isAverageSessions
     ? console.table(userAverageSessions.sessions)
@@ -63,10 +74,17 @@ function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
     return userAverageSessionsResponse
   }
 
+  const fetchUserActivities = async (id) => {
+    const userperformanceResponse = await Datas.getUserPerformance(id)
+    setUserActivities(userperformanceResponse.data)
+    return userperformanceResponse
+  }
+
   useEffect(() => {
     fetchUser(id)
     fetchUserActivity(id)
     fetchUserAverageSessions(id)
+    fetchUserActivities(id)
     return // componentWillUnmount
   }, [id])
 
@@ -98,6 +116,7 @@ Profile.propType = {
   isKeyData: PropTypes.bool,
   isTodayScore: PropTypes.bool,
   isAverageSessions: PropTypes.bool,
+  isActivity: PropTypes.bool,
   isActivities: PropTypes.bool,
 }
 
@@ -105,5 +124,6 @@ Profile.defaultProps = {
   isKeyData: false,
   isTodayScore: false,
   isAverageSessions: false,
+  isActivity: false,
   isActivities: false,
 }

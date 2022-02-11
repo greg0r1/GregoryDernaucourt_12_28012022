@@ -52,4 +52,19 @@ export default class Datas {
     })
     return userFetch
   }
+
+  /**
+   * @param {string} id
+   */
+  static async getUserPerformance(id) {
+    const url = `http://localhost:3000/user/${id}/performance`
+    const userFetch = await fetch(url).then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        console.log(response.status)
+      }
+    })
+    return userFetch
+  }
 }
