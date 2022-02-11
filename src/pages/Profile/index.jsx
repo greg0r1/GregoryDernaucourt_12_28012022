@@ -9,6 +9,7 @@ import KeyData from '../../components/KeyDatas'
 import AverageSessions from '../../components/AverageSessions'
 import PropTypes from 'prop-types'
 import Error from '../../components/Error'
+import AverageScore from '../../components/AverageScore'
 
 /**
  *
@@ -80,7 +81,10 @@ function Profile({ isKeyData, isTodayScore, isAverageSessions, isActivities }) {
       <div id="profilePage">
         <WelcomeBlock firstName={userInfos.userInfos.firstName} />
         <div id="content">
-          <AverageSessions data={userAverageSessions.sessions} />
+          <div className="charts">
+            <AverageSessions data={userAverageSessions.sessions} />
+            <AverageScore data={[userInfos]} />
+          </div>
           <KeyData keyData={userInfos.keyData} />
         </div>
       </div>

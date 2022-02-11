@@ -8,5 +8,15 @@
 
     #content {
         display: flex;
+
+        .charts {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            &>div {
+                margin: 10px;
+            }
+        }
     }
 }
