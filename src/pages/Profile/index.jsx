@@ -36,25 +36,15 @@ function Profile({
   const [userActivities, setUserActivities] = useState()
 
   //be able to access key figures via /user/:id/key-data route
-  isKeyData
-    ? console.table(userInfos.keyData)
-    : console.info('Key Data', isKeyData)
+  isKeyData && console.table(userInfos.keyData)
   //be able to access today's goal completion via the /user/:id/today-score route
-  isTodayScore
-    ? console.table(userInfos.score)
-    : console.info('Today score', isTodayScore)
+  isTodayScore && console.table(userInfos.score)
   //be able to access sessions via the /user/:id/activity route
-  isActivity
-    ? console.table(userActivity.sessions)
-    : console.info('Activity', isActivity)
+  isActivity && console.table(userActivity.sessions)
   //be able to access sessions via the /user/:id/activities route
-  isActivities
-    ? console.table(userActivities)
-    : console.info('Activities', isActivities)
+  isActivities && console.table(userActivities)
   //be able to access average session duration via the /user/:id/average-sessions route
-  isAverageSessions
-    ? console.table(userAverageSessions.sessions)
-    : console.info('Average sessions', isAverageSessions)
+  isAverageSessions && console.table(userAverageSessions.sessions)
 
   const fetchUser = async (id) => {
     const userInfoResponse = await Datas.getUserInfos(id)
