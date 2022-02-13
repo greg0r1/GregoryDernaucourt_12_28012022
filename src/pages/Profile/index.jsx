@@ -10,6 +10,7 @@ import AverageSessions from '../../components/AverageSessions'
 import PropTypes from 'prop-types'
 import Error from '../../components/Error'
 import AverageScore from '../../components/AverageScore'
+import Performance from '../../components/Performance'
 
 /**
  *
@@ -33,7 +34,7 @@ function Profile({
   const [userAverageSessions, setUserAverageSessions] = useState({
     sessions: [],
   })
-  const [userActivities, setUserActivities] = useState()
+  const [userActivities, setUserActivities] = useState({ data: [], kind: {} })
 
   //be able to access key figures via /user/:id/key-data route
   isKeyData && console.table(userInfos.keyData)
@@ -91,6 +92,10 @@ function Profile({
         <div id="content">
           <div className="charts">
             <AverageSessions data={userAverageSessions.sessions} />
+            <Performance
+              data={userActivities.data}
+              kind={userActivities.kind}
+            />
             <AverageScore data={[userInfos]} />
           </div>
           <KeyData keyData={userInfos.keyData} />

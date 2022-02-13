@@ -1,5 +1,5 @@
 .keyDatas {
-
+    width: 100%;
     margin: auto;
 
     ul li {
@@ -8,10 +8,11 @@
         background: #FBFBFB;
         margin: 24px;
         border-radius: 5px;
+        min-width: fit-content;
+        width: 200px;
+        margin: auto;
 
         @include mobile-only {
-            min-width: fit-content;
-            width: 200px;
             margin: 10px auto;
         }
 
@@ -39,6 +40,7 @@
     }
 
     .keyDatas_list {
+        display: flex;
         list-style: none;
 
         @include mobile-only {
