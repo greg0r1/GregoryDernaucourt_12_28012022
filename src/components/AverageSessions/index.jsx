@@ -48,7 +48,7 @@ function AverageSessions({ data }) {
   return (
     <div className="averageSessions">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart width={300} height={300} data={data}>
+        <LineChart data={data}>
           <defs>
             <linearGradient id="colorLine" x1="0%" y1="0" x2="100%" y2="0">
               <stop offset="0%" stopColor="#FFF" />

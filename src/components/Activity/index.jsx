@@ -20,7 +20,7 @@ import {
  */
 function Activity({ data }) {
   return (
-    <div className="activity" style={{ width: '100%', height: 300 }}>
+    <div className="activity">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={900}

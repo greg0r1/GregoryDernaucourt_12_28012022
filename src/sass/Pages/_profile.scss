@@ -1,5 +1,5 @@
 #profilePage {
-    padding: 20px 0 0 65px;
+    padding: 10px 0 0 35px;
     width: 89%;
 
     @include mobile-only {
@@ -9,7 +9,11 @@
 
     #content {
         display: flex;
-        flex-wrap: wrap;
+        width: 100%;
+
+        @include mobile-only {
+            flex-wrap: wrap;
+        }
 
         .charts {
             display: flex;

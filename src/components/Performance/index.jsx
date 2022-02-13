@@ -17,8 +17,8 @@ import {
  */
 function Performance({ data, kind }) {
   return (
-    <div className="performance" style={{ width: 300 }}>
-      <ResponsiveContainer width="100%" height={300}>
+    <div className="performance">
+      <ResponsiveContainer width="100%" height="100%">
         <RadarChart
           outerRadius={90}
           width={730}
