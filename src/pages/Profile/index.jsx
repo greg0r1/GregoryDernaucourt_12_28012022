@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 import Error from '../../components/Error'
 import AverageScore from '../../components/AverageScore'
 import Performance from '../../components/Performance'
+import Activity from '../../components/Activity'
 
 /**
  *
@@ -91,6 +92,7 @@ function Profile({
         <WelcomeBlock firstName={userInfos.userInfos.firstName} />
         <div id="content">
           <div className="charts">
+            <Activity data={userActivity.sessions} />
             <AverageSessions data={userAverageSessions.sessions} />
             <Performance
               data={userActivities.data}
