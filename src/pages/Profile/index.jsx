@@ -81,9 +81,11 @@ function Profile({
   }, [id])
 
   if (
-    userInfos.keyData === undefined ||
-    userAverageSessions.sessions === undefined ||
-    isNaN(parseInt(id))
+    !userInfos.userInfos.firstName ||
+    !userActivity.sessions ||
+    !userAverageSessions.sessions ||
+    !userActivities.data ||
+    !userActivities.kind
   ) {
     return <Error />
   } else {
@@ -93,12 +95,14 @@ function Profile({
         <div id="content">
           <div className="charts">
             <Activity data={userActivity.sessions} />
-            <AverageSessions data={userAverageSessions.sessions} />
-            <Performance
-              data={userActivities.data}
-              kind={userActivities.kind}
-            />
-            <AverageScore data={[userInfos]} />
+            <div className="squaresCharts">
+              <AverageSessions data={userAverageSessions.sessions} />
+              <Performance
+                data={userActivities.data}
+                kind={userActivities.kind}
+              />
+              <AverageScore data={[userInfos]} />
+            </div>
           </div>
           <KeyData keyData={userInfos.keyData} />
         </div>

@@ -57,9 +57,17 @@ function Activity({ data }) {
             tickLine={false}
             scale="auto"
             height={1}
-            // domain={['auto', 'auto']}
+            domain={['dataMin -5', 'dataMax + 5']}
             // @ts-ignore
             padding={{ left: 10, right: 10 }}
+          />
+          <YAxis
+            dataKey="calories"
+            orientation="left"
+            axisLine={true}
+            tickLine={true}
+            domain={[0, 290]}
+            hide={true}
           />
           <Tooltip />
           <Legend verticalAlign="top" align="right" />

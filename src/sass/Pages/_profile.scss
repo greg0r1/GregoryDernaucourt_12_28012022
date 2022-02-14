@@ -1,4 +1,6 @@
 #profilePage {
+    display: flex;
+    flex-direction: column;
     padding: 10px 0 0 35px;
     width: 89%;
 
@@ -16,14 +18,29 @@
         }
 
         .charts {
+            width: 70%;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-around;
 
-            &>div {
+            .squaresCharts {
+                width: 100%;
                 margin: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                &>div {
+                    width: 31%;
+                    min-width: 300px
+                }
             }
+        }
+
+        .keyDatas {
+            width: 30%;
         }
     }
 }
