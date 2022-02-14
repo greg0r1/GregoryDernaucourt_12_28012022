@@ -1,6 +1,6 @@
 //@ts-check
 
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Datas from '../../data'
 // import Spinner from '../../components/Spinner'
@@ -8,7 +8,6 @@ import WelcomeBlock from '../../components/WelcomeBlock'
 import KeyData from '../../components/KeyDatas'
 import AverageSessions from '../../components/AverageSessions'
 import PropTypes from 'prop-types'
-import Error from '../../components/Error'
 import AverageScore from '../../components/AverageScore'
 import Performance from '../../components/Performance'
 import Activity from '../../components/Activity'
@@ -36,6 +35,7 @@ function Profile({
     sessions: [],
   })
   const [userActivities, setUserActivities] = useState({ data: [], kind: {} })
+  const [error, setError] = useState(false)
 
   //be able to access key figures via /user/:id/key-data route
   isKeyData && console.table(userInfos.keyData)
@@ -50,25 +50,33 @@ function Profile({
 
   const fetchUser = async (id) => {
     const userInfoResponse = await Datas.getUserInfos(id)
-    setUserInfos(userInfoResponse.data)
+    userInfoResponse !== 404
+      ? setUserInfos(userInfoResponse.data)
+      : setError(true)
     return userInfoResponse
   }
 
   const fetchUserActivity = async (id) => {
     const userActivityResponse = await Datas.getUserActivity(id)
-    setUserActivity(userActivityResponse.data)
+    userActivityResponse !== 404
+      ? setUserActivity(userActivityResponse.data)
+      : setError(true)
     return userActivityResponse
   }
 
   const fetchUserAverageSessions = async (id) => {
     const userAverageSessionsResponse = await Datas.getUserAverageSessions(id)
-    setUserAverageSessions(userAverageSessionsResponse.data)
+    userAverageSessionsResponse !== 404
+      ? setUserAverageSessions(userAverageSessionsResponse.data)
+      : setError(true)
     return userAverageSessionsResponse
   }
 
   const fetchUserActivities = async (id) => {
     const userperformanceResponse = await Datas.getUserPerformance(id)
-    setUserActivities(userperformanceResponse.data)
+    userperformanceResponse !== 404
+      ? setUserActivities(userperformanceResponse.data)
+      : setError(true)
     return userperformanceResponse
   }
 
@@ -80,14 +88,8 @@ function Profile({
     return // componentWillUnmount
   }, [id])
 
-  if (
-    !userInfos.userInfos.firstName ||
-    !userActivity.sessions ||
-    !userAverageSessions.sessions ||
-    !userActivities.data ||
-    !userActivities.kind
-  ) {
-    return <Error />
+  if (error) {
+    return <Navigate to={'404'} />
   } else {
     return (
       <div id="profilePage">

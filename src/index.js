@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './sass/main.scss';
 import reportWebVitals from './reportWebVitals';
 import RowNav from './components/RowNav';
 import VerticalNav from './components/VerticalNav';
 import Profile from './pages/Profile';
+import Error from './components/Error'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,7 +21,7 @@ ReactDOM.render(
         <Route path='/user/:id/average-sessions' element={<Profile isAverageSessions={true} />} />
         <Route path='/user/:id/activity' element={<Profile isActivity={true} />} />
         <Route path='/user/:id/activities' element={<Profile isActivities={true} />} />
-        <Route path='*' element={<Navigate to="/user/18" />}></Route>
+        <Route path='*' element={<Error />}></Route>
       </Routes>
     </Router>
   </React.StrictMode>,
