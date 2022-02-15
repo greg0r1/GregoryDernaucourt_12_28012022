@@ -31,10 +31,10 @@ function Profile({
     keyData: {},
   })
   const [userActivity, setUserActivity] = useState({ sessions: {} })
+  const [userActivities, setUserActivities] = useState({ data: [], kind: {} })
   const [userAverageSessions, setUserAverageSessions] = useState({
     sessions: [],
   })
-  const [userActivities, setUserActivities] = useState({ data: [], kind: {} })
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
 
@@ -49,7 +49,7 @@ function Profile({
   //be able to access average session duration via the /user/:id/average-sessions route
   isAverageSessions && console.table(userAverageSessions.sessions)
 
-  const fetchUser = async (id) => {
+  const fetchUser = async (/** @type {string} */ id) => {
     const userInfoResponse = await Datas.getUserInfos(id)
     userInfoResponse !== 404 && userInfoResponse !== undefined
       ? setUserInfos(userInfoResponse.data)
@@ -58,7 +58,7 @@ function Profile({
     return userInfoResponse
   }
 
-  const fetchUserActivity = async (id) => {
+  const fetchUserActivity = async (/** @type {string} */ id) => {
     const userActivityResponse = await Datas.getUserActivity(id)
     userActivityResponse !== 404 && userActivityResponse !== undefined
       ? setUserActivity(userActivityResponse.data)
@@ -67,7 +67,7 @@ function Profile({
     return userActivityResponse
   }
 
-  const fetchUserAverageSessions = async (id) => {
+  const fetchUserAverageSessions = async (/** @type {string} */ id) => {
     const userAverageSessionsResponse = await Datas.getUserAverageSessions(id)
     userAverageSessionsResponse !== 404 &&
     userAverageSessionsResponse !== undefined
@@ -77,7 +77,7 @@ function Profile({
     return userAverageSessionsResponse
   }
 
-  const fetchUserActivities = async (id) => {
+  const fetchUserActivities = async (/** @type {string} */ id) => {
     const userperformanceResponse = await Datas.getUserPerformance(id)
     userperformanceResponse !== 404 && userperformanceResponse !== undefined
       ? setUserActivities(userperformanceResponse.data)

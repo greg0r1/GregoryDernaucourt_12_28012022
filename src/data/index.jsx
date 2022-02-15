@@ -3,7 +3,8 @@
 import mocks from '../data/mocks.json'
 
 /**
- *
+ * Fetch every endpoints from API
+ * Return promises with the data into PromisResult
  *
  * @export
  * @class Datas
@@ -19,14 +20,10 @@ export default class Datas {
     } else {
       const url = `http://localhost:3000/user/${id}`
       try {
-        const userFetch = await fetch(url).then((response) => {
-          if (response.ok && response.status === 200) {
-            return response.json()
-          } else {
-            return response.status
-          }
-        })
-        return userFetch
+        const fetchUser = await fetch(url)
+        const response = fetchUser.json()
+        console.log(response)
+        return response
       } catch (error) {
         console.log(error)
       }
@@ -42,14 +39,13 @@ export default class Datas {
       return promise
     } else {
       const url = `http://localhost:3000/user/${id}/activity`
-      const userFetch = await fetch(url).then((response) => {
-        if (response.status === 200) {
-          return response.json()
-        } else {
-          return response.status
-        }
-      })
-      return userFetch
+      try {
+        const fetchUserActivity = await fetch(url)
+        const response = fetchUserActivity.json()
+        return response
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 
@@ -62,14 +58,13 @@ export default class Datas {
       return promise
     } else {
       const url = `http://localhost:3000/user/${id}/average-sessions`
-      const userFetch = await fetch(url).then((response) => {
-        if (response.status === 200) {
-          return response.json()
-        } else {
-          return response.status
-        }
-      })
-      return userFetch
+      try {
+        const fetchUserAverageSessions = await fetch(url)
+        const response = fetchUserAverageSessions.json()
+        return response
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 
@@ -82,14 +77,13 @@ export default class Datas {
       return promise
     } else {
       const url = `http://localhost:3000/user/${id}/performance`
-      const userFetch = await fetch(url).then((response) => {
-        if (response.status === 200) {
-          return response.json()
-        } else {
-          return response.status
-        }
-      })
-      return userFetch
+      try {
+        const fetchUserPerformance = await fetch(url)
+        const response = fetchUserPerformance.json()
+        return response
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
