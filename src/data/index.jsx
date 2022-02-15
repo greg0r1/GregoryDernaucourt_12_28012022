@@ -18,14 +18,18 @@ export default class Datas {
       return promise
     } else {
       const url = `http://localhost:3000/user/${id}`
-      const userFetch = await fetch(url).then((response) => {
-        if (response.status === 200) {
-          return response.json()
-        } else {
-          return response.status
-        }
-      })
-      return userFetch
+      try {
+        const userFetch = await fetch(url).then((response) => {
+          if (response.ok && response.status === 200) {
+            return response.json()
+          } else {
+            return response.status
+          }
+        })
+        return userFetch
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 

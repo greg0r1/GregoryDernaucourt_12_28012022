@@ -3,7 +3,6 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Datas from '../../data'
-// import Spinner from '../../components/Spinner'
 import WelcomeBlock from '../../components/WelcomeBlock'
 import KeyData from '../../components/KeyDatas'
 import AverageSessions from '../../components/AverageSessions'
@@ -11,6 +10,7 @@ import PropTypes from 'prop-types'
 import AverageScore from '../../components/AverageScore'
 import Performance from '../../components/Performance'
 import Activity from '../../components/Activity'
+import Spinner from '../../components/Spinner'
 
 /**
  *
@@ -36,6 +36,7 @@ function Profile({
   })
   const [userActivities, setUserActivities] = useState({ data: [], kind: {} })
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   //be able to access key figures via /user/:id/key-data route
   isKeyData && console.table(userInfos.keyData)
@@ -50,37 +51,43 @@ function Profile({
 
   const fetchUser = async (id) => {
     const userInfoResponse = await Datas.getUserInfos(id)
-    userInfoResponse !== 404
+    userInfoResponse !== 404 && userInfoResponse !== undefined
       ? setUserInfos(userInfoResponse.data)
       : setError(true)
+    setLoading(false)
     return userInfoResponse
   }
 
   const fetchUserActivity = async (id) => {
     const userActivityResponse = await Datas.getUserActivity(id)
-    userActivityResponse !== 404
+    userActivityResponse !== 404 && userActivityResponse !== undefined
       ? setUserActivity(userActivityResponse.data)
       : setError(true)
+    setLoading(false)
     return userActivityResponse
   }
 
   const fetchUserAverageSessions = async (id) => {
     const userAverageSessionsResponse = await Datas.getUserAverageSessions(id)
-    userAverageSessionsResponse !== 404
+    userAverageSessionsResponse !== 404 &&
+    userAverageSessionsResponse !== undefined
       ? setUserAverageSessions(userAverageSessionsResponse.data)
       : setError(true)
+    setLoading(false)
     return userAverageSessionsResponse
   }
 
   const fetchUserActivities = async (id) => {
     const userperformanceResponse = await Datas.getUserPerformance(id)
-    userperformanceResponse !== 404
+    userperformanceResponse !== 404 && userperformanceResponse !== undefined
       ? setUserActivities(userperformanceResponse.data)
       : setError(true)
+    setLoading(false)
     return userperformanceResponse
   }
 
   useEffect(() => {
+    setLoading(true)
     fetchUser(id)
     fetchUserActivity(id)
     fetchUserAverageSessions(id)
@@ -90,6 +97,8 @@ function Profile({
 
   if (error) {
     return <Navigate to={'404'} />
+  } else if (loading) {
+    return <Spinner />
   } else {
     return (
       <div id="profilePage">
