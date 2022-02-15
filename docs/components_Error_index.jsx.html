@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Error/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,39 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Error/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//@ts-check
 
+import { Link } from 'react-router-dom'
 
-    <h3> </h3>
+/**
+ * @component
+ * @returns {React.ReactElement}
+ */
+function Error() {
+  return (
+    &lt;div className="errorContainer">
+      &lt;h1 className="errorTitle">404&lt;/h1>
+      &lt;p>Oups! La page que vous demandez n'existe pas.&lt;/p>
+      &lt;Link className="errorLink" to="/">
+        Retourner sur la page d’accueil
+      &lt;/Link>
+    &lt;/div>
+  )
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Error
+</code></pre>
+        </article>
+    </section>
 
 
 

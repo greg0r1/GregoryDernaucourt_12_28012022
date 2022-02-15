@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/RowNav/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,47 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/RowNav/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//@ts-check
 
+import { Link, NavLink } from 'react-router-dom'
+import Logo from '../../assets/images/logo.svg'
 
-    <h3> </h3>
+/**
+ * Links to homepage and about page
+ * @component
+ * @returns {React.ReactElement}
+ */
+function RowNav() {
+  const id = 18
 
+  return (
+    &lt;header className="row-nav">
+      &lt;Link to="/">
+        &lt;img src={Logo} alt="" className="img_logo" />
+      &lt;/Link>
+      &lt;nav>
+        &lt;NavLink to="/">Accueil&lt;/NavLink>
+        &lt;NavLink to={`/user/${id}`}>Profil&lt;/NavLink>
+        &lt;NavLink to="/setting">Réglage&lt;/NavLink>
+        &lt;NavLink to="/community">Communauté&lt;/NavLink>
+      &lt;/nav>
+    &lt;/header>
+  )
+}
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default RowNav
+</code></pre>
+        </article>
+    </section>
 
 
 

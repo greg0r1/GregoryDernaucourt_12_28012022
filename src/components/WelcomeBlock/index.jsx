@@ -3,7 +3,7 @@
 /**
  *
  * @param {{firstName: string}} props
- * @returns
+ * @returns {React.ReactElement}
  */
 function WelcomeBlock({ firstName }) {
   return (

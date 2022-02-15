@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Performance/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,72 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Performance/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//@ts-check
 
+import {
+  Radar,
+  RadarChart,
+  PolarAngleAxis,
+  ResponsiveContainer,
+  PolarGrid,
+  PolarRadiusAxis,
+} from 'recharts'
 
-    <h3> </h3>
+/**
+ *
+ *
+ * @params {array} { data, kind }
+ * @returns {React.ReactElement}
+ */
+function Performance({ data, kind }) {
+  return (
+    &lt;div className="performance">
+      &lt;ResponsiveContainer width="100%" height="100%">
+        &lt;RadarChart
+          outerRadius={90}
+          width={730}
+          height={250}
+          cx="50%"
+          cy="50%"
+          data={data}
+          style={{ width: '0', background: '#282D30' }}
+        >
+          &lt;PolarAngleAxis
+            dataKey="kind"
+            tickFormatter={(kindNumber) => {
+              return `${kind[kindNumber]}`
+            }}
+            stroke="#FFF"
+            tickLine={false}
+          />
+          &lt;PolarGrid radialLines={false} />
+          &lt;PolarRadiusAxis axisLine={false} tick={false} tickCount={5} />
+          &lt;Radar
+            name=""
+            dataKey="value"
+            stroke="#ff0000"
+            fill="#ff0101b3"
+            fillOpacity={0.6}
+          />
+        &lt;/RadarChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
+  )
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Performance
+</code></pre>
+        </article>
+    </section>
 
 
 

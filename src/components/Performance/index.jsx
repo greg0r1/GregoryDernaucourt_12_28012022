@@ -13,7 +13,7 @@ import {
  *
  *
  * @params {array} { data, kind }
- * @returns
+ * @returns {React.ReactElement}
  */
 function Performance({ data, kind }) {
   return (

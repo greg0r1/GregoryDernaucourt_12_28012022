@@ -9,6 +9,12 @@ import {
   Legend,
 } from 'recharts'
 
+/**
+ *
+ *
+ * @params {Array} { data }
+ * @returns {React.ReactElement}
+ */
 function AverageSessions({ data }) {
   function CustomToolTip({ active, payload }) {
     if (active) {

@@ -8,7 +8,7 @@ import lipidCountImg from '../../assets/images/lipidCountImg.svg'
 /**
  *
  * @param {{keyData: object}} props
- * @returns
+ * @returns {React.ReactElement}
  */
 function KeyData({ keyData }) {
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = keyData

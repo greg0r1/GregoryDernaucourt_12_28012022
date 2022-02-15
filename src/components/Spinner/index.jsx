@@ -2,6 +2,11 @@
 
 import spinner from '../../assets/images/spinner.svg'
 
+/**
+ *
+ *
+ * @returns {React.ReactElement}
+ */
 function Spinner() {
   return (
     <div className="spinnerContainer">

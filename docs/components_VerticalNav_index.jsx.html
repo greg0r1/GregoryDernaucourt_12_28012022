@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/VerticalNav/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,52 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/VerticalNav/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//@ts-check
 
+import { NavLink } from 'react-router-dom'
 
-    <h3> </h3>
+/**
+ * Links to nav blocks
+ * @component
+ * @returns {React.ReactElement}
+ */
+function VerticalNav() {
+  return (
+    &lt;nav className="verticalNav">
+      &lt;div className="verticalNavLinks">
+        &lt;NavLink to="">
+          &lt;span className="verticalNav-icon01">&lt;/span>
+        &lt;/NavLink>
+        &lt;NavLink to="">
+          &lt;span className="verticalNav-icon02">&lt;/span>
+        &lt;/NavLink>
+        &lt;NavLink to="">
+          &lt;span className="verticalNav-icon03">&lt;/span>
+        &lt;/NavLink>
+        &lt;NavLink to="">
+          &lt;span className="verticalNav-icon04">&lt;/span>
+        &lt;/NavLink>
+      &lt;/div>
+      &lt;div className="copyright">
+        &lt;span>Copyright, SportSee 2020&lt;/span>
+      &lt;/div>
+    &lt;/nav>
+  )
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default VerticalNav
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -9,6 +9,12 @@ import {
   Label,
 } from 'recharts'
 
+/**
+ *
+ *
+ * @params {array} { data }
+ * @returns {React.ReactElement}
+ */
 function AverageScore({ data }) {
   const style = {
     top: '50%',
