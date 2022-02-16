@@ -13,8 +13,8 @@ import Activity from '../../components/Activity'
 import Spinner from '../../components/Spinner'
 
 /**
+ * Profile page
  *
- * @component
  * @returns {React.ReactElement}
  */
 function Profile({
@@ -94,6 +94,8 @@ function Profile({
     fetchUserActivities(id)
     return // componentWillUnmount
   }, [id])
+
+  console.log([userInfos])
 
   if (error) {
     return <Navigate to={'404'} />

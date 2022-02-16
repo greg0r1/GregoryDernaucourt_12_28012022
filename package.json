@@ -45,8 +45,8 @@
     "jsdoc": "^3.6.10",
     "prettier": "^2.5.1"
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "This project render profile page for the app.",
   "main": "index.js",
-  "author": "",
+  "author": "Gregory DERNAUCOURT",
   "license": "ISC"
 }

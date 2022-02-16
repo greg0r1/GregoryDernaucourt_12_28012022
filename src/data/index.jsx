@@ -3,14 +3,15 @@
 import mocks from '../data/mocks.json'
 
 /**
- * Fetch every endpoints from API
- * Return promises with the data into PromisResult
+ * Fetch every endpoints from API for components
+ * Return promises with the data into Promise Result
  * @class
- * @returns {React.ReactElement}
  */
 export default class Datas {
   /**
    * @param {string} id
+   * @returns {promise}
+   * @static
    */
   static async getUserInfos(id) {
     if (process.env.REACT_APP_MOCK === 'true') {
@@ -21,7 +22,6 @@ export default class Datas {
       try {
         const fetchUser = await fetch(url)
         const response = fetchUser.json()
-        console.log(response)
         return response
       } catch (error) {
         console.log(error)
@@ -31,6 +31,8 @@ export default class Datas {
 
   /**
    * @param {string} id
+   * @returns {promise}
+   * @static
    */
   static async getUserActivity(id) {
     if (process.env.REACT_APP_MOCK === 'true') {
@@ -50,6 +52,8 @@ export default class Datas {
 
   /**
    * @param {string} id
+   * @returns {promise}
+   * @static
    */
   static async getUserAverageSessions(id) {
     if (process.env.REACT_APP_MOCK === 'true') {
@@ -69,6 +73,8 @@ export default class Datas {
 
   /**
    * @param {string} id
+   * @returns {promise}
+   * @static
    */
   static async getUserPerformance(id) {
     if (process.env.REACT_APP_MOCK === 'true') {

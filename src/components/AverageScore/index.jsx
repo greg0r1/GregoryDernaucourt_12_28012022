@@ -1,5 +1,6 @@
 //@ts-check
 
+import PropTypes from 'prop-types'
 import {
   RadialBarChart,
   RadialBar,
@@ -10,9 +11,10 @@ import {
 } from 'recharts'
 
 /**
+ * Average activity with a Radial Bar Chart
  *
- *
- * @params {array} { data }
+ * @param {Object} props
+ * @param {Array} props.data
  * @returns {React.ReactElement}
  */
 function AverageScore({ data }) {
@@ -97,3 +99,11 @@ function AverageScore({ data }) {
 }
 
 export default AverageScore
+
+AverageScore.propType = {
+  data: PropTypes.object.isRequired,
+}
+
+AverageScore.defaultProps = {
+  data: {},
+}

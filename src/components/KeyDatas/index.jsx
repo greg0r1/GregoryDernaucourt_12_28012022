@@ -1,13 +1,16 @@
 //@ts-check
 
+import PropTypes from 'prop-types'
 import calorieCountImg from '../../assets/images/calorieCountImg.svg'
 import proteinCountImg from '../../assets/images/proteinCountImg.svg'
 import carbohydrateCountImg from '../../assets/images/carbohydrateCountImg.svg'
 import lipidCountImg from '../../assets/images/lipidCountImg.svg'
 
 /**
+ * Card infos keys
  *
- * @param {{keyData: object}} props
+ * @param {Object} props
+ * @param {Object} props.keyData
  * @returns {React.ReactElement}
  */
 function KeyData({ keyData }) {
@@ -50,3 +53,11 @@ function KeyData({ keyData }) {
 }
 
 export default KeyData
+
+KeyData.propType = {
+  keyData: PropTypes.object.isRequired,
+}
+
+KeyData.defaultProps = {
+  keyData: {},
+}

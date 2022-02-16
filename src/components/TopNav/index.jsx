@@ -4,12 +4,12 @@ import { Link, NavLink } from 'react-router-dom'
 import Logo from '../../assets/images/logo.svg'
 
 /**
- * Links to homepage and about page
- * @component
+ * NAvLinks top
+ *
  * @returns {React.ReactElement}
  */
-function RowNav() {
-  const id = 18
+function TopNav() {
+  const id = 18 // Mock data
 
   return (
     <header className="row-nav">
@@ -26,4 +26,4 @@ function RowNav() {
   )
 }
 
-export default RowNav
+export default TopNav

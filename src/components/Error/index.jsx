@@ -3,7 +3,7 @@
 import { Link } from 'react-router-dom'
 
 /**
- * @component
+ * 404 element
  * @returns {React.ReactElement}
  */
 function Error() {

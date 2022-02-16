@@ -13,9 +13,10 @@ import {
 } from 'recharts'
 
 /**
- * Daily activity in the form of a BarChart
+ * Daily activity with a Bar Chart
  *
- * @params {array} { data }
+ * @param {Object} props
+ * @param {Object } props.data
  * @returns {React.ReactElement}
  */
 function Activity({ data }) {
@@ -94,9 +95,9 @@ function Activity({ data }) {
 export default Activity
 
 Activity.propType = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
 Activity.defaultProps = {
-  data: [],
+  data: {},
 }

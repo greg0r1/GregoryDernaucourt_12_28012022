@@ -1,5 +1,6 @@
 //@ts-check
 
+import PropTypes from 'prop-types'
 import {
   Radar,
   RadarChart,
@@ -10,9 +11,11 @@ import {
 } from 'recharts'
 
 /**
+ * Type of activity in a radar chart
  *
- *
- * @params {array} { data, kind }
+ * @param {Object} props
+ * @param {Object} props.data
+ * @param {Object} props.kind
  * @returns {React.ReactElement}
  */
 function Performance({ data, kind }) {
@@ -52,3 +55,8 @@ function Performance({ data, kind }) {
 }
 
 export default Performance
+
+Performance.propType = {
+  data: PropTypes.object.isRequired,
+  kind: PropTypes.object.isRequired,
+}

@@ -1,5 +1,6 @@
 //@ts-check
 
+import PropTypes from 'prop-types'
 import {
   LineChart,
   Line,
@@ -10,9 +11,10 @@ import {
 } from 'recharts'
 
 /**
+ * Average sessions with a Line Chart
  *
- *
- * @params {Array} { data }
+ * @param {Object} props
+ * @param {Object} props.data
  * @returns {React.ReactElement}
  */
 function AverageSessions({ data }) {
@@ -94,3 +96,11 @@ function AverageSessions({ data }) {
 }
 
 export default AverageSessions
+
+AverageSessions.propType = {
+  data: PropTypes.object.isRequired,
+}
+
+AverageSessions.defaultProps = {
+  data: {},
+}

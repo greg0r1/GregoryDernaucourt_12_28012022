@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 /**
  * Links to nav blocks
- * @component
+ *
  * @returns {React.ReactElement}
  */
 function VerticalNav() {

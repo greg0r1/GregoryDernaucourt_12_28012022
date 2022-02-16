@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './sass/main.scss';
 import reportWebVitals from './reportWebVitals';
-import RowNav from './components/RowNav';
+import TopNav from './components/TopNav';
 import VerticalNav from './components/VerticalNav';
 import Profile from './pages/Profile';
 import Error from './components/Error'
@@ -11,7 +11,7 @@ import Error from './components/Error'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <RowNav />
+      <TopNav />
       <VerticalNav />
       <Routes>
         <Route path='/user/' element={<Profile />} />

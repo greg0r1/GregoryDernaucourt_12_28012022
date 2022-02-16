@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Performance/index.jsx</title>
+    <title>JSDoc: Source: components/TopNav/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Performance/index.jsx</h1>
+    <h1 class="page-title">Source: components/TopNav/index.jsx</h1>
 
     
 
@@ -28,66 +28,33 @@
         <article>
             <pre class="prettyprint source linenums"><code>//@ts-check
 
-import PropTypes from 'prop-types'
-import {
-  Radar,
-  RadarChart,
-  PolarAngleAxis,
-  ResponsiveContainer,
-  PolarGrid,
-  PolarRadiusAxis,
-} from 'recharts'
+import { Link, NavLink } from 'react-router-dom'
+import Logo from '../../assets/images/logo.svg'
 
 /**
- * Type of activity in a radar chart
+ * NAvLinks top
  *
- * @param {Object} props
- * @param {Object} props.data
- * @param {Object} props.kind
  * @returns {React.ReactElement}
  */
-function Performance({ data, kind }) {
+function TopNav() {
+  const id = 18 // Mock data
+
   return (
-    &lt;div className="performance">
-      &lt;ResponsiveContainer width="100%" height="100%">
-        &lt;RadarChart
-          outerRadius={90}
-          width={730}
-          height={250}
-          cx="50%"
-          cy="50%"
-          data={data}
-          style={{ width: '0', background: '#282D30' }}
-        >
-          &lt;PolarAngleAxis
-            dataKey="kind"
-            tickFormatter={(kindNumber) => {
-              return `${kind[kindNumber]}`
-            }}
-            stroke="#FFF"
-            tickLine={false}
-          />
-          &lt;PolarGrid radialLines={false} />
-          &lt;PolarRadiusAxis axisLine={false} tick={false} tickCount={5} />
-          &lt;Radar
-            name=""
-            dataKey="value"
-            stroke="#ff0000"
-            fill="#ff0101b3"
-            fillOpacity={0.6}
-          />
-        &lt;/RadarChart>
-      &lt;/ResponsiveContainer>
-    &lt;/div>
+    &lt;header className="row-nav">
+      &lt;Link to="/">
+        &lt;img src={Logo} alt="" className="img_logo" />
+      &lt;/Link>
+      &lt;nav>
+        &lt;NavLink to="/">Accueil&lt;/NavLink>
+        &lt;NavLink to={`/user/${id}`}>Profil&lt;/NavLink>
+        &lt;NavLink to="/setting">Réglage&lt;/NavLink>
+        &lt;NavLink to="/community">Communauté&lt;/NavLink>
+      &lt;/nav>
+    &lt;/header>
   )
 }
 
-export default Performance
-
-Performance.propType = {
-  data: PropTypes.object.isRequired,
-  kind: PropTypes.object.isRequired,
-}
+export default TopNav
 </code></pre>
         </article>
     </section>
