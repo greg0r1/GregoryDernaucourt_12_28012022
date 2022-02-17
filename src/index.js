@@ -7,6 +7,7 @@ import TopNav from './components/TopNav';
 import VerticalNav from './components/VerticalNav';
 import Profile from './pages/Profile';
 import Error from './components/Error'
+import RedirectView from './components/RedirectView'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,6 +22,9 @@ ReactDOM.render(
         <Route path='/user/:id/average-sessions' element={<Profile isAverageSessions={true} />} />
         <Route path='/user/:id/activity' element={<Profile isActivity={true} />} />
         <Route path='/user/:id/activities' element={<Profile isActivities={true} />} />
+        <Route path='/setting' element={<RedirectView />} />
+        <Route path='/community' element={<RedirectView />} />
+        <Route path='/' element={<RedirectView />} />
         <Route path='*' element={<Error />}></Route>
       </Routes>
     </Router>
