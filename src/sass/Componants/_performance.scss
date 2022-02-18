@@ -1,6 +1,8 @@
 .performance {
-    width: 300px;
-    height: 300px;
+    max-width: 300px;
+    width: auto;
+    aspect-ratio: 1/1;
     background: #282D30;
     border-radius: 5px;
+    overflow: hidden;
 }

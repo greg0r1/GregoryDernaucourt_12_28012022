@@ -24,12 +24,10 @@ function Performance({ data, kind }) {
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart
           outerRadius={90}
-          width={730}
-          height={250}
           cx="50%"
           cy="50%"
           data={data}
-          style={{ width: '0', background: '#282D30' }}
+          style={{ background: '#282D30' }}
         >
           <PolarAngleAxis
             dataKey="kind"
@@ -47,6 +45,7 @@ function Performance({ data, kind }) {
             stroke="#ff0000"
             fill="#ff0101b3"
             fillOpacity={0.6}
+            width={100}
           />
         </RadarChart>
       </ResponsiveContainer>

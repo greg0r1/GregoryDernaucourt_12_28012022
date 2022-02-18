@@ -95,8 +95,6 @@ function Profile({
     return // componentWillUnmount
   }, [id])
 
-  console.log([userInfos])
-
   if (error) {
     return <Navigate to={'404'} />
   } else if (loading) {

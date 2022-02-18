@@ -39,7 +39,7 @@ function Activity({ data }) {
             className="progress-label"
             style={{
               padding: '20px',
-              transform: 'translate(10%, 10%)',
+              transform: 'translate(15%, 10%)',
               color: '#000',
               fontWeight: '500',
             }}

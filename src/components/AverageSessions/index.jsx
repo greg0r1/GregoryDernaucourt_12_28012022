@@ -23,13 +23,13 @@ function AverageSessions({ data }) {
       return (
         <div
           style={{
-            padding: '3px 10px',
+            padding: '3px 5px',
             borderRadius: '2px',
             background: '#FFF',
             margin: 'auto',
           }}
         >
-          <p>{payload[0].value} min</p>
+          <p style={{ fontSize: '10px' }}>{payload[0].value} min</p>
         </div>
       )
     }
@@ -41,12 +41,12 @@ function AverageSessions({ data }) {
       <div
         style={{
           color: '#FFF',
-          padding: '10% 30% 0 5%',
+          padding: '0 5%',
           background: 'red',
           opacity: '0.5',
         }}
       >
-        <p style={{ fontSize: '1.1rem', fontWeight: 'bolder' }}>
+        <p style={{ fontSize: '.9rem', fontWeight: 'bolder' }}>
           Durée moyenne des sessions
         </p>
       </div>
@@ -77,7 +77,7 @@ function AverageSessions({ data }) {
             }}
           />
           <Tooltip
-            content={<CustomToolTip active={undefined} payload={undefined} />}
+            content={<CustomToolTip active={true} payload={data} />}
             cursor={{ stroke: '#FFF', strokeWidth: 2 }}
           />
           <Legend verticalAlign="top" align="left" content={renderLegend} />

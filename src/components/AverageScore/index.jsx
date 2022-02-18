@@ -41,8 +41,6 @@ function AverageScore({ data }) {
     <div className="averageScore">
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
-          width={200}
-          height={200}
           cx="50%"
           cy="50%"
           innerRadius="80%"
@@ -79,7 +77,7 @@ function AverageScore({ data }) {
             className="progress-label"
             style={{
               padding: '20px',
-              transform: 'translate(10%, 10%)',
+              transform: 'translate(15%, 10%)',
               color: '#000',
               fontWeight: '500',
             }}
