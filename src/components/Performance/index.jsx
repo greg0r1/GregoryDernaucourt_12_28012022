@@ -21,24 +21,31 @@ import {
 function Performance({ data, kind }) {
   return (
     <div className="performance">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" aspect={1}>
         <RadarChart
-          outerRadius={90}
-          cx="50%"
+          outerRadius="65%"
+          cx="52%"
           cy="50%"
           data={data}
           style={{ background: '#282D30' }}
+          startAngle={390}
+          endAngle={30}
         >
           <PolarAngleAxis
             dataKey="kind"
             tickFormatter={(kindNumber) => {
-              return `${kind[kindNumber]}`
+              return (
+                kind[kindNumber] &&
+                `${kind[kindNumber].substring(0, 1).toUpperCase()}${kind[
+                  kindNumber
+                ].substring(1)}`
+              )
             }}
             stroke="#FFF"
             tickLine={false}
           />
           <PolarGrid radialLines={false} />
-          <PolarRadiusAxis axisLine={false} tick={false} tickCount={5} />
+          <PolarRadiusAxis axisLine={false} tick={false} />
           <Radar
             name=""
             dataKey="value"

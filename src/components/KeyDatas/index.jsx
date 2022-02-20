@@ -22,12 +22,15 @@ function KeyData({ keyData }) {
         <li className="keyDatas_calorie">
           <img src={calorieCountImg} width="50" alt="" />
           <div>
-            <span>{calorieCount}kCal</span>
+            <span>
+              {(calorieCount / 1000).toFixed(3).toString().replace('.', ',')}
+              kCal
+            </span>
             <span>Calories</span>
           </div>
         </li>
         <li className="keyDatas_protein">
-          <img src={proteinCountImg} width="50" alt="" />
+          <img src={proteinCountImg} width={50} height={50} alt="" />
           <div>
             <span>{proteinCount}g</span>
             <span>Protéines</span>
