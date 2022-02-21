@@ -21,11 +21,11 @@ import {
 function Performance({ data, kind }) {
   return (
     <div className="performance">
-      <ResponsiveContainer width="100%" aspect={1}>
+      <ResponsiveContainer width="100%" height="100%">
         <RadarChart
           outerRadius="65%"
           cx="52%"
-          cy="50%"
+          cy="52%"
           data={data}
           style={{ background: '#282D30' }}
           startAngle={390}
@@ -35,6 +35,7 @@ function Performance({ data, kind }) {
             dataKey="kind"
             tickFormatter={(kindNumber) => {
               return (
+                typeof kindNumber === 'number' &&
                 kind[kindNumber] &&
                 `${kind[kindNumber].substring(0, 1).toUpperCase()}${kind[
                   kindNumber
@@ -47,7 +48,6 @@ function Performance({ data, kind }) {
           <PolarGrid radialLines={false} />
           <PolarRadiusAxis axisLine={false} tick={false} />
           <Radar
-            name=""
             dataKey="value"
             stroke="#ff0000"
             fill="#ff0101b3"
