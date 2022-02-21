@@ -24,7 +24,7 @@ You are free to use either mocks datas, or the API. Go to ".env.local" file, and
 
 ## 3. Document source code with JSDoc
 
-[Installation:](https://www.npmjs.com/package/jsdoc)
+Installation: [npm Jsdoc installation](https://www.npmjs.com/package/jsdoc)
 Not necessary if you have already perform a global install.
 Then, run the command `npm run doc`
 
