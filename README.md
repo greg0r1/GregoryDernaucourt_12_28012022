@@ -16,6 +16,18 @@ Then run the command `npm start` for on-the-fly modules compilation by Webpack, 
 
 To create a production build, use `npm run build`.
 
+## 3. Data usage
+
+You are free to use either mocks datas, or the API. Go to ".env.local" file, and switch value:
+`REACT_APP_MOCK=true`to use mocks
+`REACT_APP_MOCK=false`to use API
+
+## 3. Document source code with JSDoc
+
+[Installation:](https://www.npmjs.com/package/jsdoc)
+Not necessary if you have already perform a global install.
+Then, run the command `npm run doc`
+
 ## Technologies
 
 - JS
