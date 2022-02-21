@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Activity/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Activity/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//@ts-check
+
+import PropTypes from 'prop-types'
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts'
+
+/**
+ * Daily activity with a Bar Chart
+ *
+ * @param {Object} props
+ * @param {Object } props.data
+ * @returns {React.ReactElement}
+ */
+function Activity({ data }) {
+  const CustomTooltip = ({ payload }) => {
+    if (payload &amp;&amp; payload.length) {
+      return (
+        &lt;div
+          style={{
+            padding: '3px 5px',
+            borderRadius: '2px',
+            background: 'red',
+            margin: 'auto',
+            color: '#FFF',
+          }}
+        >
+          &lt;p>{`${payload[0].value} ${payload[0].unit}`}&lt;/p>
+          &lt;p>{`${payload[1].value} ${payload[1].unit}`} &lt;/p>
+        &lt;/div>
+      )
+    }
+    return null
+  }
+
+  return (
+    &lt;div className="activity">
+      &lt;ResponsiveContainer width="100%" height="100%" aspect={600 / 150}>
+        &lt;BarChart
+          data={data}
+          margin={{
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0,
+          }}
+          barGap={5}
+          stackOffset="expand"
+          style={{ padding: '20px', overflow: 'visible', height: 'auto' }}
+        >
+          &lt;text
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="progress-label"
+            style={{
+              transform: 'translate(13%, -5%)',
+              color: '#000',
+              fontWeight: '500',
+            }}
+          >
+            Activité quotidienne
+          &lt;/text>
+          &lt;XAxis
+            axisLine={true}
+            tickLine={false}
+            tickMargin={10}
+            domain={['minData', 'maxData']}
+            tickFormatter={(number) => number + 1}
+            scale="point"
+            padding={{ left: 15, right: 15 }}
+            style={{ fontSize: '12px' }}
+          />
+          &lt;YAxis
+            yAxisId="right"
+            dataKey="kilogram"
+            orientation="right"
+            tickCount={3}
+            allowDecimals={false}
+            allowDataOverflow={false}
+            axisLine={false}
+            tickLine={false}
+            ticks={[65, 70, 75]}
+            // @ts-ignore
+            padding={{ left: 10, right: 10 }}
+            domain={[65, 75]}
+            type="number"
+            scale="auto"
+            style={{ fontSize: '12px' }}
+          />
+          &lt;YAxis
+            yAxisId="left"
+            dataKey="calories"
+            domain={['auto', 'auto']}
+            scale="auto"
+            hide
+          />
+          &lt;Tooltip content={&lt;CustomTooltip payload={[data]} />} />
+          &lt;CartesianGrid
+            vertical={false}
+            strokeDasharray="1"
+            style={{ padding: '0', margin: '0' }}
+          />
+          &lt;Legend
+            verticalAlign="top"
+            align="right"
+            iconType="circle"
+            iconSize={8}
+          />
+          &lt;Bar
+            yAxisId="right"
+            dataKey="kilogram"
+            fill="#282D30"
+            barSize={6}
+            radius={[5, 5, 0, 0]}
+            name="Poids (kg)"
+            unit={'kg'}
+            style={{ margin: '0', padding: '0' }}
+          />
+          &lt;Bar
+            yAxisId="left"
+            dataKey="calories"
+            fill="#E60000"
+            barSize={6}
+            radius={[5, 5, 0, 0]}
+            name="Calories brulées (kCal)"
+            unit={'kCal'}
+          />
+        &lt;/BarChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
+  )
+}
+
+export default Activity
+
+Activity.propType = {
+  data: PropTypes.object.isRequired,
+}
+
+Activity.defaultProps = {
+  data: {},
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#AverageScore">AverageScore</a></li><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#KeyData">KeyData</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#TopNav">TopNav</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li><li><a href="global.html#WelcomeBlock">WelcomeBlock</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Feb 21 2022 16:41:29 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

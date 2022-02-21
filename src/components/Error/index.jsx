@@ -1,10 +1,9 @@
 //@ts-check
 
 import { Link } from 'react-router-dom'
-import './style.css'
 
 /**
- * @component
+ * 404 element
  * @returns {React.ReactElement}
  */
 function Error() {

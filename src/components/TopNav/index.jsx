@@ -1,15 +1,16 @@
 //@ts-check
 
 import { Link, NavLink } from 'react-router-dom'
-import Logo from '../../assets/logo.svg'
-import './style.css'
+import Logo from '../../assets/images/logo.svg'
 
 /**
- * Links to homepage and about page
- * @component
+ * NAvLinks top
+ *
  * @returns {React.ReactElement}
  */
-function RowNav() {
+function TopNav() {
+  const id = 18 // Mock data
+
   return (
     <header className="row-nav">
       <Link to="/">
@@ -17,7 +18,7 @@ function RowNav() {
       </Link>
       <nav>
         <NavLink to="/">Accueil</NavLink>
-        <NavLink to="/profile">Profil</NavLink>
+        <NavLink to={`/user/${id}`}>Profil</NavLink>
         <NavLink to="/setting">Réglage</NavLink>
         <NavLink to="/community">Communauté</NavLink>
       </nav>
@@ -25,4 +26,4 @@ function RowNav() {
   )
 }
 
-export default RowNav
+export default TopNav
