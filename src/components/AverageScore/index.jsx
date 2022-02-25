@@ -49,7 +49,6 @@ function AverageScore({ data }) {
           data={data}
           startAngle={90}
           endAngle={360}
-          // @ts-ignore
         >
           <PolarAngleAxis
             type="number"
