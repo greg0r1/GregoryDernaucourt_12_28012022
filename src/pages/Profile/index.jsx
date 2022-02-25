@@ -1,6 +1,6 @@
 //@ts-check
 
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Datas from '../../data'
 import WelcomeBlock from '../../components/WelcomeBlock'
@@ -11,6 +11,7 @@ import AverageScore from '../../components/AverageScore'
 import Performance from '../../components/Performance'
 import Activity from '../../components/Activity'
 import Spinner from '../../components/Spinner'
+import Error from '../../components/Error'
 
 /**
  * Profile page
@@ -51,7 +52,9 @@ function Profile({
 
   const fetchUser = async (/** @type {string} */ id) => {
     const userInfoResponse = await Datas.getUserInfos(id)
-    userInfoResponse !== 404 && userInfoResponse !== undefined
+    userInfoResponse !== 404 &&
+    userInfoResponse !== undefined &&
+    userInfoResponse !== 'can not get user'
       ? setUserInfos(userInfoResponse.data)
       : setError(true)
     setLoading(false)
@@ -60,7 +63,9 @@ function Profile({
 
   const fetchUserActivity = async (/** @type {string} */ id) => {
     const userActivityResponse = await Datas.getUserActivity(id)
-    userActivityResponse !== 404 && userActivityResponse !== undefined
+    userActivityResponse !== 404 &&
+    userActivityResponse !== undefined &&
+    userActivityResponse !== 'can not get user'
       ? setUserActivity(userActivityResponse.data)
       : setError(true)
     setLoading(false)
@@ -70,7 +75,8 @@ function Profile({
   const fetchUserAverageSessions = async (/** @type {string} */ id) => {
     const userAverageSessionsResponse = await Datas.getUserAverageSessions(id)
     userAverageSessionsResponse !== 404 &&
-    userAverageSessionsResponse !== undefined
+    userAverageSessionsResponse !== undefined &&
+    userAverageSessionsResponse !== 'can not get user'
       ? setUserAverageSessions(userAverageSessionsResponse.data)
       : setError(true)
     setLoading(false)
@@ -79,7 +85,9 @@ function Profile({
 
   const fetchUserActivities = async (/** @type {string} */ id) => {
     const userperformanceResponse = await Datas.getUserPerformance(id)
-    userperformanceResponse !== 404 && userperformanceResponse !== undefined
+    userperformanceResponse !== 404 &&
+    userperformanceResponse !== undefined &&
+    userperformanceResponse !== 'can not get user'
       ? setUserActivities(userperformanceResponse.data)
       : setError(true)
     setLoading(false)
@@ -96,7 +104,7 @@ function Profile({
   }, [id])
 
   if (error) {
-    return <Navigate to={'404'} />
+    return <Error />
   } else if (loading) {
     return <Spinner />
   } else {

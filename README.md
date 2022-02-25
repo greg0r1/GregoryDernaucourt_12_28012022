@@ -8,13 +8,25 @@ Please follow the instructions below to start the project
 
 ## 2. Project launch
 
-To start this project, first you need to install all the dependencies.
-To do this, run the command `npm install` (with no args, in package dir)
+To start this project, first you need to install all the dependencies.  
+To do this, run the command `npm install` (with no args, in package dir)  
 This command installs any packages that it depends on.
 
 Then run the command `npm start` for on-the-fly modules compilation by Webpack, and open the browser view window on the local port.
 
 To create a production build, use `npm run build`.
+
+## 3. Data usage
+
+You are free to use either mocks datas, or the API. Go to ".env.local" file, and switch value:  
+For data mocks: `REACT_APP_MOCK=true`  
+For data API: `REACT_APP_MOCK=false`
+
+## 3. Document source code with JSDoc
+
+Installation: [npm Jsdoc installation](https://www.npmjs.com/package/jsdoc)  
+Not necessary if you have already perform a global install.  
+Then, run the command `npm run doc`
 
 ## Technologies
 
