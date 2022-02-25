@@ -86,7 +86,7 @@ function Activity({ data }) {
             allowDataOverflow={false}
             axisLine={false}
             tickLine={false}
-            ticks={[65, 70, 75]}
+            ticks={[65, 70, 75, 80]}
             // @ts-ignore
             padding={{ left: 10, right: 10 }}
             domain={[65, 75]}

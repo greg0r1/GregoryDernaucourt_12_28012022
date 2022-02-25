@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './sass/main.scss';
 import reportWebVitals from './reportWebVitals';
 import TopNav from './components/TopNav';
@@ -11,7 +11,7 @@ import RedirectView from './components/RedirectView'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <BrowserRouter>
       <TopNav />
       <VerticalNav />
       <Routes>
@@ -27,7 +27,7 @@ ReactDOM.render(
         <Route path='/' element={<RedirectView />} />
         <Route path='*' element={<Error />}></Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
