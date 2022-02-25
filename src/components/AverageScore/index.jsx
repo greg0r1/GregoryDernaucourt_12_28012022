@@ -76,7 +76,7 @@ function AverageScore({ data }) {
             className="progress-label"
             style={{
               padding: '20px',
-              transform: 'translate(15%, 10%)',
+              transform: 'translate(30px, 20px)',
               color: '#000',
               fontWeight: '500',
             }}

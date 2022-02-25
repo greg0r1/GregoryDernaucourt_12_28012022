@@ -60,7 +60,7 @@ function Activity({ data }) {
             dominantBaseline="middle"
             className="progress-label"
             style={{
-              transform: 'translate(13%, -5%)',
+              transform: 'translate(100px, -15px)',
               color: '#000',
               fontWeight: '500',
             }}
@@ -76,7 +76,7 @@ function Activity({ data }) {
             scale="point"
             padding={{ left: 15, right: 15 }}
             style={{ fontSize: '12px' }}
-          />
+          ></XAxis>
           <YAxis
             yAxisId="right"
             dataKey="kilogram"
@@ -97,9 +97,11 @@ function Activity({ data }) {
           <YAxis
             yAxisId="left"
             dataKey="calories"
+            axisLine={false}
+            tickLine={false}
+            tick={false}
             domain={['auto', 'auto']}
             scale="auto"
-            hide
           />
           <Tooltip content={<CustomTooltip payload={[data]} />} />
           <CartesianGrid
